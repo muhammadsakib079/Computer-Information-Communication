@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="bn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>উন্নত কম্পিউটার ও তথ্যপ্রযুক্তি ইন্টারেক্টিভ প্রশ্ন-উত্তর</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Share+Tech+Mono&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Hind Siliguri", sans-serif;
+        background-color: #0d1117;
+        color: #c9d1d9;
+        /* Cyber Grid Background */
+        background-image: linear-gradient(
+            rgba(88, 166, 255, 0.1) 1px,
+            transparent 1px
+          ),
+          linear-gradient(90deg, rgba(88, 166, 255, 0.1) 1px, transparent 1px);
+        background-size: 30px 30px;
+      }
+      .tech-font {
+        font-family: "Share Tech Mono", monospace;
+      }
+      /* Card accordion animation */
+      .card .answer {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.7s ease-in-out, padding 0.7s ease-in-out;
+        padding-top: 0;
+        padding-bottom: 0;
+      }
+      .card.active .answer {
+        max-height: 2000px;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+      }
+      .card.active .icon-down {
+        transform: rotate(180deg);
+        color: #38bdf8;
+      }
+      .icon-down {
+        transition: transform 0.4s ease-in-out, color 0.3s;
+      }
+      /* Custom Select Arrow */
+      select {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23c9d1d9%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.4-12.8z%22%2F%3E%3C%2Fsvg%3E");
+        background-repeat: no-repeat;
+        background-position: right 1rem center;
+        background-size: 0.8em;
+      }
+      /* Content styling */
+      .answer ul {
+        list-style-type: disc;
+        padding-left: 20px;
+        margin-top: 8px;
+      }
+      .answer ol {
+        list-style-type: decimal;
+        padding-left: 20px;
+        margin-top: 8px;
+      }
+      .answer table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+      }
+      .answer th,
+      .answer td {
+        border: 1px solid #30363d;
+        padding: 8px;
+        text-align: left;
+      }
+      .answer th {
+        background-color: #21262d;
+      }
+
+      /* Tab styling */
+      .tab-btn {
+        transition: all 0.3s ease;
+        text-shadow: 0 0 5px rgba(56, 189, 248, 0.5);
+      }
+      .tab-btn.active {
+        color: #e0f2fe;
+        background-color: #58a6ff30;
+        border-color: #58a6ff;
+        box-shadow: 0 0 20px rgba(56, 189, 248, 0.6);
+      }
+      /* Card styling & animations */
+      .card {
+        background: #161b22;
+        border: 1px solid #30363d;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+        animation: fadeIn 0.8s ease-in-out;
+      }
+      .card:hover {
+        border-color: #58a6ff;
+        box-shadow: 0 0 25px rgba(88, 166, 255, 0.4);
+        transform: translateY(-6px);
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      /* Input glow effect */
+      .input-glow:focus {
+        outline: none;
+        border-color: #58a6ff;
+        box-shadow: 0 0 15px rgba(88, 166, 255, 0.4);
+      }
+      /* Typewriter effect */
+      .typewriter-cursor {
+        display: inline-block;
+        width: 10px;
+        height: 2.5rem;
+        background-color: #38bdf8;
+        animation: blink 1s infinite;
+        margin-left: 5px;
+      }
+      @keyframes blink {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0;
+        }
+      }
+      /* Custom Scrollbar */
+      ::-webkit-scrollbar {
+        width: 10px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #0d1117;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #2a3847;
+        border-radius: 5px;
+        border: 1px solid #30363d;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #58a6ff;
+      }
+      /* Dropdown styling for individual parts of 'গ-বিভাগ' questions */
+      .qa-part {
+        display: block;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        padding: 0.5rem 0.5rem;
+        margin-bottom: 0.25rem;
+        border-radius: 0.5rem;
+        font-weight: 500;
+      }
+      .qa-part:hover {
+        background-color: rgba(88, 166, 255, 0.1);
+      }
+      .qa-part-content {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.7s ease-in-out, padding 0.7s ease-in-out;
+        padding-top: 0;
+        padding-bottom: 0;
+      }
+      .qa-part.active .qa-part-content {
+        max-height: 2000px;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+      }
+      .qa-part-title .icon-down {
+        transform: rotate(0deg);
+        transition: transform 0.4s ease-in-out;
+      }
+      .qa-part.active .qa-part-title .icon-down {
+        transform: rotate(180deg);
+      }
+      /* New blur effect for unread questions */
+      .card.unread {
+        filter: blur(1px);
+        transition: filter 0.5s ease-in-out, box-shadow 0.3s, transform 0.3s;
+      }
+      .card.unread:hover {
+        filter: blur(0);
+      }
+      .card.unread.active {
+        filter: blur(0);
+      }
+      /* Styles for the revision notification */
+      #revision-notification {
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        backdrop-filter: blur(10px);
+        background-color: rgba(22, 27, 34, 0.8);
+      }
+    </style>
+  </head>
+  <body class="antialiased">
+    <div
+      id="revision-notification"
+      class="hidden w-full p-4 border-b-2 border-sky-500/50"
+    >
+      <div
+        class="container mx-auto flex flex-col md:flex-row items-center justify-between text-yellow-300 bg-yellow-900/30 p-3 rounded-lg shadow-xl"
+      >
+        <span id="revision-message" class="text-center md:text-left mb-2 md:mb-0">
+          আপনার কিছু প্রশ্নের রিভিশনের সময় হয়েছে! ✨
+        </span>
+        <button
+          id="show-revision-btn"
+          class="bg-yellow-500 text-yellow-900 font-bold px-4 py-2 rounded-full hover:bg-yellow-400 transition-colors duration-300 shadow-lg"
+        >
+          রিভিশনের জন্য প্রশ্নগুলি দেখুন
+        </button>
+      </div>
+    </div>
+
+    <div class="container mx-auto p-4 md:p-8">
+      <header
+        class="text-center mb-8 p-6 border-2 border-sky-500/30 rounded-lg"
+        style="
+          box-shadow: 0 0 35px rgba(56, 189, 248, 0.25),
+            inset 0 0 20px rgba(56, 189, 248, 0.15);
+        "
+      >
+        <h1
+          id="main-title"
+          class="text-3xl md:text-5xl font-bold text-sky-300 tracking-widest tech-font"
+        ></h1>
+        <p class="text-lg text-sky-500 mt-3 tech-font">
+          বিষয় কোড: ২২২৬১১ | ইন্টারেক্টিভ প্রশ্ন-উত্তর
+        </p>
+      </header>
+
+      <main>
+        <div id="tabs" class="flex justify-center gap-2 md:gap-4 mb-6">
+          <button
+            class="tab-btn tech-font text-lg px-4 py-2 md:px-8 md:py-3 border-b-2 border-transparent"
+            data-section="ক"
+          >
+            ক-বিভাগ
+          </button>
+          <button
+            class="tab-btn tech-font text-lg px-4 py-2 md:px-8 md:py-3 border-b-2 border-transparent"
+            data-section="খ"
+          >
+            খ-বিভাগ
+          </button>
+          <button
+            class="tab-btn tech-font text-lg px-4 py-2 md:px-8 md:py-3 border-b-2 border-transparent"
+            data-section="গ"
+          >
+            গ-বিভাগ
+          </button>
+        </div>
+
+        <div
+          id="controls"
+          class="mb-8 p-4 bg-[#161b22]/80 rounded-lg shadow-lg border border-[#30363d] backdrop-blur-sm"
+        >
+          <div class="flex flex-col md:flex-row items-center gap-4">
+            <input
+              type="search"
+              id="search-box"
+              placeholder="🔎 কীওয়ার্ড দিয়ে সার্চ করুন..."
+              class="w-full md:w-2/3 p-3 bg-[#0d1117] border border-[#30363d] rounded-lg text-gray-300 placeholder-gray-500 transition input-glow"
+            />
+            <select
+              id="category-select"
+              class="w-full md:w-1/3 p-3 bg-[#0d1117] border border-[#30363d] rounded-lg text-gray-300 transition input-glow"
+            ></select>
+          </div>
+        </div>
+
+        <div
+          id="card-container"
+          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
+        ></div>
+      </main>
+
+      <footer class="text-center mt-12 py-4 border-t border-gray-800">
+        <p class="text-gray-500 tech-font">
+          &copy; 2024 | Enhanced Interactive Learning Protocol
+        </p>
+      </footer>
+    </div>
+
+    <script>
+      // The application data is now loaded from a separate JSON file.
+      let qaData = [];
+      let activeSection = "ক"; // Default section
+      let unreadQuestions = {};
+      let revisionQuestions = {};
+      let filteredRevisionQuestions = [];
+      let isShowingRevisions = false;
+      let revisionInterval;
+
+      // --- DOM Element References ---
+      const cardContainer = document.getElementById("card-container");
+      const categorySelect = document.getElementById("category-select");
+      const searchBox = document.getElementById("search-box");
+      const tabsContainer = document.getElementById("tabs");
+      const mainTitle = document.getElementById("main-title");
+      const revisionNotification = document.getElementById("revision-notification");
+      const revisionMessage = document.getElementById("revision-message");
+      const showRevisionBtn = document.getElementById("show-revision-btn");
+
+      // Helper function to generate a unique ID for each question
+      function generateUniqueId(question) {
+        return btoa(unescape(encodeURIComponent(question.q))).replace(/=/g, "");
+      }
+
+      /**
+       * Saves the unread and revision status to local storage.
+       */
+      function saveState() {
+        localStorage.setItem("unreadQuestions", JSON.stringify(unreadQuestions));
+        localStorage.setItem("revisionQuestions", JSON.stringify(revisionQuestions));
+      }
+
+      /**
+       * Loads the unread and revision status from local storage.
+       */
+      function loadState() {
+        const storedUnread = localStorage.getItem("unreadQuestions");
+        if (storedUnread) {
+          unreadQuestions = JSON.parse(storedUnread);
+        } else {
+          // If no state is found, all questions are unread
+          qaData.forEach(item => {
+            unreadQuestions[generateUniqueId(item)] = true;
+          });
+          saveState();
+        }
+
+        const storedRevision = localStorage.getItem("revisionQuestions");
+        if (storedRevision) {
+          revisionQuestions = JSON.parse(storedRevision);
+        }
+      }
+
+      /**
+       * Checks for pending revisions and displays a notification if any.
+       */
+      function checkForRevisions() {
+        const now = new Date().getTime();
+        const pendingRevisions = Object.entries(revisionQuestions).filter(
+          ([id, time]) => now > time
+        );
+
+        if (pendingRevisions.length > 0) {
+          revisionNotification.classList.remove("hidden");
+          revisionNotification.classList.add("flex");
+          filteredRevisionQuestions = pendingRevisions.map(([id]) => {
+            const question = qaData.find(item => generateUniqueId(item) === id);
+            return question;
+          });
+          updateRevisionMessage();
+        } else {
+          revisionNotification.classList.remove("flex");
+          revisionNotification.classList.add("hidden");
+          clearInterval(revisionInterval); // Stop the countdown if no revisions are due
+        }
+      }
+
+      /**
+       * Updates the revision countdown message.
+       */
+      function updateRevisionMessage() {
+          const pendingCount = filteredRevisionQuestions.length;
+          revisionMessage.textContent = `${pendingCount}টি প্রশ্নের রিভিশনের সময় হয়েছে! ✨`;
+      }
+
+
+      /**
+       * Typewriter effect for the main title.
+       */
+      function typewriterEffect() {
+        const text = "কম্পিউটার ও তথ্যপ্রযুক্তি";
+        let i = 0;
+        mainTitle.innerHTML = ""; // Clear existing text
+        const cursor = '<span class="typewriter-cursor"></span>';
+
+        function type() {
+          if (i < text.length) {
+            mainTitle.innerHTML = text.substring(0, i + 1) + cursor;
+            i++;
+            setTimeout(type, 100);
+          } else {
+            mainTitle.innerHTML = text; // Remove cursor when done
+          }
+        }
+        type();
+      }
+
+      /**
+       * Updates the visual state of the tabs.
+       */
+      function updateActiveTab() {
+        document.querySelectorAll(".tab-btn").forEach((btn) => {
+          btn.classList.toggle("active", btn.dataset.section === activeSection);
+        });
+      }
+
+      /**
+       * Populates the category dropdown based on the active section.
+       */
+      function populateCategoryDropdown() {
+        const sectionData = qaData.filter(
+          (item) => item.section === activeSection
+        );
+        const categories = [
+          "সকল বিভাগ",
+          ...new Set(sectionData.map((item) => item.cat)),
+        ];
+        categorySelect.innerHTML = "";
+        categories.forEach((cat) => {
+          const option = document.createElement("option");
+          option.value = cat;
+          option.textContent = cat;
+          categorySelect.appendChild(option);
+        });
+      }
+
+      /**
+       * Renders the question cards based on the provided data array.
+       */
+      function renderCards(data) {
+        cardContainer.innerHTML = "";
+        if (data.length === 0) {
+          cardContainer.innerHTML = `<p class="tech-font text-xl text-center text-red-400 col-span-full py-10">[ আপনার অনুসন্ধানের সাথে মেলে এমন কোনো ডেটা পাওয়া যায়নি ]</p>`;
+          return;
+        }
+
+        data.forEach((item) => {
+          const card = document.createElement("div");
+          const cardId = generateUniqueId(item);
+          card.className = "card rounded-lg";
+          
+          if (unreadQuestions[cardId]) {
+            card.classList.add("unread");
+          }
+
+          let innerHtml = '';
+          if (item.q.includes("(ক)") && item.q.includes("(খ)")) {
+            // For গ-বিভাগ questions with (ক) and (খ) parts
+            const questionParts = JSON.parse(item.a);
+            innerHtml = `
+              <div class="p-4 flex justify-between items-center gap-3 cursor-pointer">
+                <h3 class="text-lg font-semibold text-gray-200">${item.icon} ${item.q.replace("(ক)", "").replace("(খ)", "").trim()}</h3>
+                <svg class="icon-down w-5 h-5 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+              </div>
+              <div class="answer px-4 pb-4 border-t border-gray-700/50 pt-3">
+                <div class="qa-part p-2 border border-transparent">
+                  <div class="flex justify-between items-center qa-part-title">
+                    <span class="text-gray-200">ক-অংশ</span>
+                    <svg class="icon-down w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                  </div>
+                  <div class="qa-part-content text-gray-300">
+                    ${questionParts.k}
+                  </div>
+                </div>
+                <div class="qa-part p-2 border border-transparent mt-2">
+                  <div class="flex justify-between items-center qa-part-title">
+                    <span class="text-gray-200">খ-অংশ</span>
+                    <svg class="icon-down w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                  </div>
+                  <div class="qa-part-content text-gray-300">
+                    ${questionParts.kh}
+                  </div>
+                </div>
+                <button
+                  class="revision-btn mt-4 w-full bg-sky-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-sky-600 transition-colors duration-300"
+                  data-card-id="${cardId}"
+                >
+                  রিভিশনের জন্য সংরক্ষণ করুন
+                </button>
+              </div>
+            `;
+          } else {
+            // For regular questions
+            const revisionCountdown = revisionQuestions[cardId] ? `<p class="mt-2 text-sm text-sky-300 revision-countdown" data-card-id="${cardId}"></p>` : '';
+            innerHtml = `
+              <div class="p-4 flex justify-between items-center gap-3 cursor-pointer">
+                <h3 class="text-lg font-semibold text-gray-200">${item.icon} ${item.q}</h3>
+                <svg class="icon-down w-5 h-5 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+              </div>
+              <div class="answer px-4 pb-4">
+                <div class="text-gray-300 border-t border-gray-700/50 pt-3">${item.a}</div>
+                <button
+                  class="revision-btn mt-4 w-full bg-sky-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-sky-600 transition-colors duration-300"
+                  data-card-id="${cardId}"
+                >
+                  রিভিশনের জন্য সংরক্ষণ করুন
+                </button>
+                ${revisionCountdown}
+              </div>
+            `;
+          }
+
+          card.innerHTML = innerHtml;
+          
+          if (unreadQuestions[cardId]) {
+            card.classList.add("unread");
+          } else {
+            const revisionCountdownElement = card.querySelector(".revision-countdown");
+            if (revisionCountdownElement) {
+                startCountdown(revisionCountdownElement, revisionQuestions[cardId]);
+            }
+          }
+
+          card.addEventListener("click", () => {
+              card.classList.toggle("active");
+              // Remove blur on first click
+              if (card.classList.contains("unread")) {
+                  card.classList.remove("unread");
+                  delete unreadQuestions[cardId];
+                  saveState();
+              }
+          });
+          
+          // Add event listener for revision button
+          const revisionBtn = card.querySelector(".revision-btn");
+          if(revisionBtn) {
+              revisionBtn.addEventListener("click", (e) => {
+                  e.stopPropagation(); // Prevent card from toggling
+                  const cardId = e.target.dataset.cardId;
+                  const oneWeekLater = new Date();
+                  oneWeekLater.setDate(oneWeekLater.getDate() + 7);
+                  revisionQuestions[cardId] = oneWeekLater.getTime();
+                  saveState();
+                  alert("প্রশ্নটি এক সপ্তাহ পর রিভিশনের জন্য সংরক্ষিত হয়েছে!");
+                  
+                  const countdownElement = e.target.nextElementSibling;
+                  if (countdownElement && countdownElement.classList.contains("revision-countdown")) {
+                      startCountdown(countdownElement, oneWeekLater.getTime());
+                  }
+              });
+          }
+
+          cardContainer.appendChild(card);
+        });
+      }
+
+      /**
+       * Starts the countdown for a revision question.
+       */
+      function startCountdown(element, targetTime) {
+          function update() {
+              const now = new Date().getTime();
+              const distance = targetTime - now;
+              
+              const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+              const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+              const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+              const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+              
+              if (distance < 0) {
+                  element.textContent = "রিভিশনের সময় হয়েছে!";
+                  element.classList.remove('text-sky-300');
+                  element.classList.add('text-yellow-400', 'font-bold');
+                  clearInterval(element.interval);
+                  checkForRevisions();
+              } else {
+                  element.textContent = `রিভিশনের জন্য বাকি: ${days} দিন ${hours} ঘন্টা ${minutes} মিনিট ${seconds} সেকেন্ড`;
+              }
+          }
+          
+          clearInterval(element.interval);
+          element.interval = setInterval(update, 1000);
+          update(); // Initial call to display immediately
+      }
+
+
+      /**
+       * Filters and displays cards based on the current state of controls.
+       */
+      function filterAndDisplayCards() {
+        if (isShowingRevisions) {
+            renderCards(filteredRevisionQuestions);
+            return;
+        }
+
+        const selectedCategory = categorySelect.value;
+        const searchTerm = searchBox.value.toLowerCase().trim();
+
+        let filteredData = qaData.filter(
+          (item) => item.section === activeSection
+        );
+
+        if (selectedCategory && selectedCategory !== "সকল বিভাগ") {
+          filteredData = filteredData.filter(
+            (item) => item.cat === selectedCategory
+          );
+        }
+
+        if (searchTerm) {
+          filteredData = filteredData.filter(
+            (item) =>
+              item.q.toLowerCase().includes(searchTerm) ||
+              (typeof item.a === "string" &&
+                item.a.toLowerCase().includes(searchTerm))
+          );
+        }
+
+        renderCards(filteredData);
+      }
+
+      // --- Event Listeners Setup ---
+
+      /**
+       * Handles clicks on the tab container.
+       */
+      tabsContainer.addEventListener("click", (e) => {
+        if (e.target.classList.contains("tab-btn")) {
+          const newSection = e.target.dataset.section;
+          if (newSection !== activeSection) {
+            activeSection = newSection;
+            isShowingRevisions = false;
+            searchBox.value = ""; // Reset search on tab change
+            updateActiveTab();
+            populateCategoryDropdown();
+            filterAndDisplayCards();
+            // Clear any revision messages
+            revisionNotification.classList.remove("flex");
+            revisionNotification.classList.add("hidden");
+          }
+        }
+      });
+
+      searchBox.addEventListener("keyup", filterAndDisplayCards);
+      categorySelect.addEventListener("change", filterAndDisplayCards);
+
+      showRevisionBtn.addEventListener("click", () => {
+          isShowingRevisions = true;
+          filterAndDisplayCards();
+          // Hide the notification after showing the cards
+          revisionNotification.classList.remove("flex");
+          revisionNotification.classList.add("hidden");
+      });
+
+      /**
+       * Initial application setup on DOM content loaded.
+       */
+      document.addEventListener("DOMContentLoaded", async () => {
+        // Fetch data from the external JSON file
+        try {
+          const response = await fetch('data.json');
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+          qaData = await response.json();
+          
+          loadState();
+          typewriterEffect();
+          updateActiveTab();
+          populateCategoryDropdown();
+          filterAndDisplayCards();
+          checkForRevisions();
+
+        } catch (error) {
+          console.error("Failed to load data.json:", error);
+          cardContainer.innerHTML = `<p class="tech-font text-xl text-center text-red-400 col-span-full py-10">[ ডেটা লোড করতে ব্যর্থ হয়েছে। অনুগ্রহ করে নিশ্চিত করুন যে 'data.json' ফাইলটি সঠিক স্থানে আছে। ]</p>`;
+        }
+      });
+    </script>
+  </body>
+</html>
